@@ -2,6 +2,7 @@ var path = require('path');
 var LiveReloadPlugin = require('webpack-livereload-plugin');
 var webpack = require('webpack');
 
+var destination = process.env.WIDGET_MODE ? 'client-bot/dist' :'client/dist'
 module.exports = {
   entry: './client/index.js',
   output: {

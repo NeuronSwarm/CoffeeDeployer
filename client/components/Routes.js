@@ -5,6 +5,7 @@ import Home from './Home';
 import Singularity from './Singularity';
 import Login from './auth/Login';
 import CupUpdater from './CupUpdater';
+import ConfigForm from './ConfigForm';
 import { getCoffeeIndex } from '../redux/reducers/coffee-api';
 
 
@@ -20,6 +21,7 @@ const Routes = ({getCoffeeIndex}) => {
       <Route path= '/coffee-update' component= {CupUpdater} />
       <Route path= '/login' component= {Login} />
       <Route path= '/countDown' component= {Singularity} />
+      <Route path= '/widget' component= {ConfigForm} />
       <Route path= '*' component= {Singularity} />
     </Router>
   )
