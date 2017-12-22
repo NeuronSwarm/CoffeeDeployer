@@ -6,6 +6,7 @@ import Graph from './Graph';
 import Panel from './Panel';
 import Container from './Container';
 import Row from './Row';
+import store from '../redux/store'
 import { getCoffeeIndex } from '../redux/reducers/coffee-api';
 
 class Home extends Component {
@@ -32,6 +33,7 @@ class Home extends Component {
   }
   componentDidMount() {
     console.log("Home mounted");
+    getCoffeeIndex()(store.dispatch)
   }
 }
 

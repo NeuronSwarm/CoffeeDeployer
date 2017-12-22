@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import Home from './Home';
 import Singularity from './Singularity';
 import Login from './auth/Login';
+import Register from './auth/Register';
 import CupUpdater from './CupUpdater';
 import ConfigForm from './ConfigForm';
 import { getCoffeeIndex } from '../redux/reducers/coffee-api';
@@ -17,9 +18,10 @@ const Routes = ({getCoffeeIndex}) => {
   return (
     <Router history={browserHistory} >
       <Route exact path= '/' component= {Singularity} />
-      <Route path= '/react-app' component= {Home}/>
+      <Route path= '/dashboard' component= {Home}/>
       <Route path= '/coffee-update' component= {CupUpdater} />
       <Route path= '/login' component= {Login} />
+      <Route path= '/register' component= {Register} />
       <Route path= '/countDown' component= {Singularity} />
       <Route path= '/widget' component= {ConfigForm} />
       <Route path= '*' component= {Singularity} />

@@ -2,10 +2,11 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import SimpleForm from './SimpleForm';
+import { Control } from 'react-redux-form';
 //import SimpleButton from './SimpleButton';
-import { login} from '../../redux/reducers/coffee-api';
+import { register} from '../../redux/reducers/coffee-api';
 
-class Login extends Component {
+class Register extends Component {
   constructor(props){
     super(props);
     this.form = { style: { maxWidth: '300px'} }
@@ -14,10 +15,14 @@ class Login extends Component {
   render() {
     return (
       <div className="mobile-container">
-        <h1>Login Page</h1>
+        <h1>Register Page</h1>
         <p className="lead"> For Coffee Fanatics</p>
         <br/>
-        <SimpleForm formDispatcher={login} onSuccess="/dashboard">
+        <SimpleForm formDispatcher={register} onSuccess="/widget">
+
+          <div className="padding"> 
+            <Control.text model=".email" placeholder="Email"/>
+          </div> 
           <button type="submit" className="btn btn-default">Submit</button>
           <button type="button" className="btn btn-primary">Cancel</button>
         </ SimpleForm >
@@ -26,4 +31,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default Register;

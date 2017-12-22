@@ -65,7 +65,21 @@ export const login = (values, successCB, failureCB) => {
   console.log("Attempt Techdrone Login")
   axios.post(`${URL}/auth/login`, values)
     .then((response) => {
-      console.log(response.data)
+      if(response.data.session){
+        localStorage.setItem("session", response.data.session)
+        return successCB()
+      } 
+      return failureCB()
+    })
+    .catch((err) => {
+      console.error.bind(err);
+    })
+};
+
+export const register = (values, successCB, failureCB) => {
+  // dispatch(addTask({title: task, metafields: [{value: false}], slug: formatSlug(task)}));
+  axios.post(`${URL}/auth/register`, values)
+    .then((response) => {
       if(response.data.session){
         localStorage.setItem("session", response.data.session)
         return successCB()
@@ -104,7 +118,6 @@ export const getCoffeeYearTotal = () => dispatch => {
 };
 
 export const getLastDays = () => dispatch => {
-  console.log("Attempt Graph Lookup")
   axios.get('http://localhost:8080/api/coffee/days', NodeManager.getConfig())
     .then((response) => {
       return response.data;

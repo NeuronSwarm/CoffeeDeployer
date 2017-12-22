@@ -5,16 +5,15 @@ import { login} from '../../redux/reducers/coffee-api';
 export default class SimpleForm extends React.Component {
   constructor(props){
     super(props)
-    console.log(props.history)
   }
   handleChange(values) {  }
   handleUpdate(form) {  }
-  handleSubmit(values) { login(values,
+  handleSubmit(values) { this.props.formDispatcher(values,
                          this.success,
-                         () => {console.log('login failed')} )
+                         () => {console.log('dispatch failed')} )
                         }
   success(){
-    location.replace('/')
+    location.replace(this.props.onSuccess)
   }
   render() {
     return (
@@ -23,8 +22,12 @@ export default class SimpleForm extends React.Component {
         onChange={(values) => this.handleChange(values)}
         onSubmit={(values) => this.handleSubmit(values)}
       >
-        <Control.text model=".username" />
-        <Control.text model=".password" />
+        <div  className="padding"> 
+        <Control.text model=".username" placeholder="User"/>
+        </div> 
+        <div className="padding"> 
+        <Control.text model=".password" placeholder="Pass"/>
+        </div> 
         {this.props.children}
       </LocalForm>
     );
