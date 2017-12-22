@@ -90,6 +90,19 @@ export const getCoffeeIndex = () => dispatch => {
     })
 };
 
+export const getCoffeeYearTotal = () => dispatch => {
+  axios.get(`${URL}/api/coffee/year`, NodeManager.getConfig())
+    .then((response) => {
+      return response.data;
+    })
+    .then((coffeeData) => {
+      dispatch(getCoffee(coffeeData))
+    })
+    .catch((err) => {
+      console.error.bind(err);
+    })
+};
+
 export const getLastDays = () => dispatch => {
   console.log("Attempt Graph Lookup")
   axios.get('http://localhost:8080/api/coffee/days', NodeManager.getConfig())
