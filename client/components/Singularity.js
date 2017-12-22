@@ -38,7 +38,7 @@ class Singularity extends Component {
     return {height: window.innerHeight}
   }
   MakeInline(){
-    return {display: 'inline-block', width: '50%'}
+    return {display: 'inline-block', width: '100%'}
   }
   render() {
     return (
@@ -46,15 +46,8 @@ class Singularity extends Component {
         <div style={this.MakeInline()}>
           <div className={'mobile-container'} style={ this.SetPageHeight() }>
             <div>
-              <div>
-                <SimpleButton />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div style={this.MakeInline()}>
-          <div className={'mobile-container'} style={ this.SetPageHeight() }>
-            <div>
+              <h2> CoffeeLux is Coming Soon! </h2>
+              <p> In the meantime.. </p>
               <div>
                 <h2> Days to the Singularity</h2>
                   { this.state.value }

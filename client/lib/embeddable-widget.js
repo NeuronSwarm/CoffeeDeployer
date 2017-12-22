@@ -5,12 +5,13 @@ export default class EmbeddableWidget {
   }
 
   getCode(){
-    var co =  '<div id="coffeeLover"></div>\n'
-        co+=  `<script src="https://techdrone.us/${this.getSessionPrefix()}"></script>`
-        co+=  '<script>'
-        co+=  `var config = { position: '${this.config.alignment}',`
-        co+=  `background: '${this.config.color}' }`
-        co+=  `createCoffeeWidget(config);`
+    var co =  '<div id="coffeeLover"></div> '
+        co+=  `<script src="https://techdrone.us/${this.getSessionPrefix()}"></script> `
+        co+=  '<script> '
+        co+=  `var config = { position: '${this.config.alignment}', `
+        co+=  `background: '${this.config.color}', `
+        co+=  `type: '${this.config.type}'}; `
+        co+=  `createCoffeeWidget(config); `
         co+=  '</script>'
     return co
   }

@@ -16,7 +16,7 @@ const m_routes = {
 const Routes = ({getCoffeeIndex}) => {
   return (
     <Router history={browserHistory} >
-      <Route exact path= '/' component= {Home} onEnter={getCoffeeIndex}/>
+      <Route exact path= '/' component= {Singularity} />
       <Route path= '/react-app' component= {Home}/>
       <Route path= '/coffee-update' component= {CupUpdater} />
       <Route path= '/login' component= {Login} />

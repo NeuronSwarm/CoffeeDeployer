@@ -15,7 +15,12 @@ class ConfigForm extends Component {
     this.textStyle = { color: 'black' }
   }
 
-  divStyle(color = 'grey'){ return { padding: '10px', background: color, height: '100px', width: '200px'} }
+  divStyle(color = 'grey', height = '70px'){
+    return { padding: '10px',
+              background: color,
+              height: height,
+              maxWidth: '400px',
+              marginBottom: '10px'} }
   handleChange(values) { }
   handleUpdate(form) { }
   handleSubmit(values) { 
@@ -33,19 +38,28 @@ class ConfigForm extends Component {
         onChange={(values) => this.handleChange(values)}
         onSubmit={(values) => this.handleSubmit(values)}
       >
+        <label > What kind of Counter do you want? </label>
+        <div style={this.divStyle()}>
+          <Control.radio name="type" id="DailyCounter" value="daily" style={this.radioStyle} model=".type"  />
+          <label htmlFor="DailyCounter">Daily</label>
+          <Control.radio name="type" id="AnnualCounter" value="annual" style={this.radioStyle} model=".type" />
+          <label htmlFor="AnnualCounter">Annual</label>
+        </div>
+        <label > Which side do you want the widget to appear? </label>
         <div style={this.divStyle()}>
           <Control.radio name="align" id="leftAlign" value="left" style={this.radioStyle} model=".alignment"  />
           <label htmlFor="leftAlign">Left</label>
           <Control.radio name="align" id="rightAlign" value="right" style={this.radioStyle} model=".alignment" />
           <label htmlFor="rightAlign">Right</label>
         </div>
+        <label > What color will it be? </label>
         <div style={this.divStyle()}>
           <Control.text placeholder="color" style={this.textStyle} model=".color" />
         </div>
         <button type="submit" className="btn btn-primary">Submit</button>
         <button type="button" className="btn btn-default">Cancel</button>
       </LocalForm>
-      <div style={this.divStyle('#444')}>
+      <div style={this.divStyle('#444', '150px')}>
         <code>
         { this.renderWidgetCode() }
         </code>
