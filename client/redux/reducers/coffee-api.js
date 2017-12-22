@@ -1,5 +1,6 @@
 import NodeManager from "../../lib/node-manager"
 import axios from "axios";
+import Config from '../../config'
 //import store from "../store"
 
 const POST_COFFEE = "POST_COFFEE";
@@ -8,10 +9,7 @@ const GET_DAYS = "GET_DAYS";
 const CHANGE_STATUS = "CHANGE_STATUS";
 const DELETE_TASK = "DELETE_TASK";
 
-const PROTOCOL = 'http://'
-const DOMAIN = "localhost"
-const PORT = ":8080"
-const URL = PROTOCOL + DOMAIN + PORT
+const API = Config.site.api
 /////////////////ACTIONS//////////////
 
 const addCoffee = () => ({type: POST_COFFEE});
@@ -50,7 +48,7 @@ export default reducer;
 
 export const postNewCoffeeCup = () => {
   // dispatch(addTask({title: task, metafields: [{value: false}], slug: formatSlug(task)}));
-  axios.post(`${URL}/api/coffee/update`, {},NodeManager.getConfig())
+  axios.post(`${API}/api/coffee/update`, {},NodeManager.getConfig())
     .then((response) => {
       console.log(response.data)
       return response.data;
@@ -63,7 +61,7 @@ export const postNewCoffeeCup = () => {
 export const login = (values, successCB, failureCB) => {
   // dispatch(addTask({title: task, metafields: [{value: false}], slug: formatSlug(task)}));
   console.log("Attempt Techdrone Login")
-  axios.post(`${URL}/auth/login`, values)
+  axios.post(`${API}/auth/login`, values)
     .then((response) => {
       if(response.data.session){
         localStorage.setItem("session", response.data.session)
@@ -78,7 +76,7 @@ export const login = (values, successCB, failureCB) => {
 
 export const register = (values, successCB, failureCB) => {
   // dispatch(addTask({title: task, metafields: [{value: false}], slug: formatSlug(task)}));
-  axios.post(`${URL}/auth/register`, values)
+  axios.post(`${API}/auth/register`, values)
     .then((response) => {
       if(response.data.session){
         localStorage.setItem("session", response.data.session)
@@ -92,7 +90,7 @@ export const register = (values, successCB, failureCB) => {
 };
 
 export const getCoffeeIndex = () => dispatch => {
-  axios.get(`${URL}/api/coffee/index`, NodeManager.getConfig())
+  axios.get(`${API}/api/coffee/index`, NodeManager.getConfig())
     .then((response) => {
       return response.data;
     })
@@ -105,7 +103,7 @@ export const getCoffeeIndex = () => dispatch => {
 };
 
 export const getCoffeeYearTotal = () => dispatch => {
-  axios.get(`${URL}/api/coffee/year`, NodeManager.getConfig())
+  axios.get(`${API}/api/coffee/year`, NodeManager.getConfig())
     .then((response) => {
       return response.data;
     })

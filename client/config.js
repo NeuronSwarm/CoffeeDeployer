@@ -1,8 +1,9 @@
+var url = (process.env.NODE_ENV == 'production') ?
+  'https://techdrone.us' : 'http://localhost:3000'
+
+var api = (process.env.NODE_ENV == 'production') ?
+  'https://techdrone.us' : 'http://localhost:8080'
+
 export default {
-  bucket: {
-    slug: process.env.COSMIC_BUCKET || 'todo-app',
-    type_slug: 'tasks',
-    read_key: process.env.COSMIC_READ_KEY,
-    write_key: process.env.COSMIC_WRITE_KEY
-  }
+  site: { url, api }
 }
