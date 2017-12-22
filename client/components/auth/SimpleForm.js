@@ -9,7 +9,7 @@ export default class SimpleForm extends React.Component {
   handleChange(values) {  }
   handleUpdate(form) {  }
   handleSubmit(values) { this.props.formDispatcher(values,
-                         this.success,
+                         this.success.bind(this),
                          () => {console.log('dispatch failed')} )
                         }
   success(){
