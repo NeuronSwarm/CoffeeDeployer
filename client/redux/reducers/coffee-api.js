@@ -69,7 +69,7 @@ export const login = (values, successCB, failureCB) => {
       } 
       return failureCB()
     })
-    .catch((err) => {
+    .catch((err, another) => {
       console.error.bind(err);
     })
 };

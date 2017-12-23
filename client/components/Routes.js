@@ -6,8 +6,8 @@ import Singularity from './Singularity';
 import Login from './auth/Login';
 import Register from './auth/Register';
 import CupUpdater from './CupUpdater';
-import ConfigForm from './ConfigForm';
 import { getCoffeeIndex } from '../redux/reducers/coffee-api';
+import WidgetGenerator from './WidgetGenerator';
 
 
 
@@ -23,7 +23,7 @@ const Routes = ({getCoffeeIndex}) => {
       <Route path= '/login' component= {Login} />
       <Route path= '/register' component= {Register} />
       <Route path= '/countDown' component= {Singularity} />
-      <Route path= '/widget' component= {ConfigForm} />
+      <Route path= '/widget' component= {WidgetGenerator} />
       <Route path= '*' component= {Singularity} />
     </Router>
   )

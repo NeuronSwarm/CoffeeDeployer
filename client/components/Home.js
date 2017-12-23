@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import Header from './Header';
-import Section from './Section';
 import Graph from './Graph';
 import Panel from './Panel';
 import Container from './Container';
+import Spacer from './Spacer';
 import Row from './Row';
+import NavBar from './NavBar'
 import store from '../redux/store'
 import { getCoffeeIndex } from '../redux/reducers/coffee-api';
 
@@ -25,6 +26,8 @@ class Home extends Component {
   render() {
     return (
       <div>
+        <NavBar />
+        <Spacer />
         <div style={this.style}> {this.props.coffee.user} </div>
         <Row graph = {this.graph1}/>
         <Row graph = {this.graph2}/>

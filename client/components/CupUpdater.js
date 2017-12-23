@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import Container from './Container';
+import NavBar from './NavBar';
 import SimpleButton from './SimpleButton';
 
 class CupUpdater extends Component {
@@ -14,7 +14,8 @@ class CupUpdater extends Component {
   render() {
     return (
       <div className={'mobile-container'} style={ this.SetPageHeight() }>
-        <div>
+        <div className="appbox">
+          <NavBar />
           <SimpleButton />
         </div>
       </div>

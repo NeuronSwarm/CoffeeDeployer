@@ -21,7 +21,9 @@ canvas {
   text-align: center; }
 
 .padding {
-  padding: 5px;
+  padding: 5px; }
+
+.input-text {
   color: black; }
 
 .panel1 {

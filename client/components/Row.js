@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import Header from './Header';
-import Section from './Section';
 import Graph from './Graph';
 import Panel from './Panel';
 import Container from './Container';

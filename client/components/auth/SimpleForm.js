@@ -22,10 +22,10 @@ export default class SimpleForm extends React.Component {
         onChange={(values) => this.handleChange(values)}
         onSubmit={(values) => this.handleSubmit(values)}
       >
-        <div  className="padding"> 
+        <div  className="padding input-text"> 
         <Control.text model=".username" placeholder="User"/>
         </div> 
-        <div className="padding"> 
+        <div className="padding input-text"> 
         <Control.text model=".password" placeholder="Pass"/>
         </div> 
         {this.props.children}

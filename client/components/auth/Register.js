@@ -20,7 +20,7 @@ class Register extends Component {
         <br/>
         <SimpleForm formDispatcher={register} onSuccess="/widget">
 
-          <div className="padding"> 
+          <div className="padding input-text"> 
             <Control.text model=".email" placeholder="Email"/>
           </div> 
           <button type="submit" className="btn btn-default">Submit</button>
