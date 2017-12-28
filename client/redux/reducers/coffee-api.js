@@ -4,7 +4,7 @@ import Config from '../../config'
 //import store from "../store"
 
 const POST_COFFEE = "POST_COFFEE";
-const GET_COFFEE = "GET_CjOFFEE";
+const GET_COFFEE = "GET_COFFEE";
 const GET_DAYS = "GET_DAYS";
 const CHANGE_STATUS = "CHANGE_STATUS";
 const DELETE_TASK = "DELETE_TASK";
