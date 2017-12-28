@@ -116,7 +116,7 @@ export const getCoffeeYearTotal = () => dispatch => {
 };
 
 export const getLastDays = () => dispatch => {
-  axios.get('http://localhost:8080/api/coffee/days', NodeManager.getConfig())
+  axios.get(`${API}/api/coffee/days`, NodeManager.getConfig())
     .then((response) => {
       return response.data;
     })
