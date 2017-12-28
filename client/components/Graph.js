@@ -20,13 +20,10 @@ class Graph extends Component {
   }
 
   shouldComponentUpdate(prevProps){
-    console.log('Should component Update');
-    console.log(prevProps);
     return true;
   }
   componentWillReceiveProps(nextProps){
     if(nextProps.days){
-      console.log("graph update")
       this.config.data = nextProps.days.coffeeCups
       createCharts(this.config)
     }

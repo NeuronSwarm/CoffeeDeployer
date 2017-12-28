@@ -11,7 +11,6 @@ var createCharts = function(config){
   var graphID = config.id
   var graphData = toArray(config.data) || [2, 2, 3, 2, 3, 3, 4, 2, 3, 4]
 
-  console.log(graphData)
 
   var monthNames = ["Jan", "Feb", "March", "April", "May", "June",
   "July", "Aug", "Sept", "Oct", "Nov", "Dec"

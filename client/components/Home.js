@@ -6,6 +6,7 @@ import Panel from './Panel';
 import Container from './Container';
 import Spacer from './Spacer';
 import Row from './Row';
+import GPSRow from './GPSRow';
 import NavBar from './NavBar'
 import store from '../redux/store'
 import { getCoffeeIndex } from '../redux/reducers/coffee-api';
@@ -30,7 +31,7 @@ class Home extends Component {
         <Spacer />
         <div style={this.style}> {this.props.coffee.user} </div>
         <Row graph = {this.graph1}/>
-        <Row graph = {this.graph2}/>
+        <GPSRow graph = {this.graph2}/>
       </div>
     )
   }

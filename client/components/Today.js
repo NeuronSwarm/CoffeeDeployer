@@ -2,7 +2,9 @@ import React from 'react';
 
 const Today = (props) => {
   var coffeeCount = 0
-  var coffeeTime = props.data.time
+  var coffeeTime;
+  if(props.data)
+    coffeeTime = props.data.time
   if(props.coffee){
     coffeeCount = props.coffee.coffeeCups
     if(props.coffee.updatedAt == '--')
