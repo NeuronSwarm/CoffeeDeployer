@@ -1,12 +1,13 @@
-import { createStore, applyMiddleware } from 'redux';
-import reducer from './reducers/coffee-api';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { reducer as coffee } from './reducers/coffee-api';
+import { reducer as users } from './reducers/user-api';
 import thunkMiddleware from 'redux-thunk';
 import {createLogger} from 'redux-logger';
 import {combineForms} from 'react-redux-form';
 
 //var initialUserState = { name: ''}
 const store = createStore(
-  reducer,
+  combineReducers( {coffee, users } ),
   applyMiddleware(
     thunkMiddleware
   )

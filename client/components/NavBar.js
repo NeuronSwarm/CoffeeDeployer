@@ -32,6 +32,9 @@ class NavBar extends Component {
               <li>
                 <a href="/widget">Widgets</a>
               </li>
+              <li>
+                <a href="/users">Friends</a>
+              </li>
             </ul>
           </div>
         </div>

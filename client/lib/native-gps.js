@@ -28,7 +28,6 @@ export default class NativeGPS {
         alert("Geocode failure: " + status);								// alert any other error(s)
         return false;
       }
-      console.log(results)
       this.cb(results[0])
     });
   }

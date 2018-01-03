@@ -7,7 +7,6 @@ import LocationPanel from './LocationPanel';
 import Container from './Container';
 import Container_Row from './Container_Row';
 import NativeGPS from '../lib/native-gps';
-import { getCoffeeIndex, getLastDays } from '../redux/reducers/coffee-api';
 
 class GPSRow extends Component {
   constructor(props){
@@ -31,10 +30,10 @@ class GPSRow extends Component {
         <Container_Row>
           <Container>
             <LocationPanel location = {this.state.address} data = { this.locationLabels } coffee = { this.props.coffee } />
-            <Panel data = { this.drink_data } coffee = { this.props.coffee } />
+            <Panel data = { this.drink_data } coffeeObj = { this.props.coffeeObj } />
           </Container>
           <Container chart = {true}>
-            <Graph id = {this.props.graph.id} onEnter={ getLastDays }/>
+            <Graph user_id = {this.props.graph.user_id} id = {this.props.graph.id} />
           </Container>
         </Container_Row>
 
@@ -46,13 +45,10 @@ class GPSRow extends Component {
     console.log("GPSRow mounted");
     var nativeGPS = new NativeGPS();
     nativeGPS.getCurrentLocation((position) => {
-      console.log("set gps position")
-      console.log(position)
       this.setState({ address: position.formatted_address})
     })
   }
 }
 
 const mapState = ({coffee}) => ({coffee});
-const mapDispatch = { getCoffeeIndex };
-export default connect(mapState, mapDispatch)(GPSRow);
+export default connect(mapState)(GPSRow);

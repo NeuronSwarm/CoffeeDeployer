@@ -10,6 +10,8 @@ import GPSRow from './GPSRow';
 import NavBar from './NavBar'
 import store from '../redux/store'
 import { getCoffeeIndex } from '../redux/reducers/coffee-api';
+import { Router, Route} from 'react-router-dom'
+
 
 class Home extends Component {
   constructor(props){
@@ -19,28 +21,36 @@ class Home extends Component {
                    marginLeft: "5%",
                    textTransform: 'capitalize' }
     var config = { lastDays: [] }; 
-    this.graph1 = { id: "chart1", config}
-    this.graph2 = { id: "chart2", config}
+    this.graph1 = { id: "chart1", config,
+                    user_id: this.props.match.params.user_id}
+    this.graph2 = { id: "chart2", config,
+                    user_id: this.props.match.params.user_id }
   }
 
-
   render() {
+    if(this.state) this.props.coffee = this.state.coffee
+    console.log(this.props.coffee)
+    var name = ""
+    if(this.props.coffee) name = this.props.coffee.coffee.user 
     return (
+      //  <Route path={`${this.props.match.url}/:user_id` } component={Spacer}/>
       <div>
         <NavBar />
         <Spacer />
-        <div style={this.style}> {this.props.coffee.user} </div>
-        <Row graph = {this.graph1}/>
-        <GPSRow graph = {this.graph2}/>
+        <div style={this.style}> { name + "'s Coffee Habits" } </div>
+        <Row coffeeObj ={this.props.coffee} graph = {this.graph1}/>
+        <GPSRow coffeeObj ={this.props.coffee} graph = {this.graph2}/>
+
       </div>
     )
   }
   componentDidMount() {
     console.log("Home mounted");
-    getCoffeeIndex()(store.dispatch)
+    console.log(this.props.match.params.user_id)
+    getCoffeeIndex(this.props.match.params.user_id)(store.dispatch)
   }
 }
 
 const mapState = ({coffee}) => ({coffee});
-const mapDispatch = { getCoffeeIndex };
+const mapDispatch = { getCoffeeIndex }
 export default connect(mapState, mapDispatch)(Home);

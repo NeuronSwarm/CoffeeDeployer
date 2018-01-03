@@ -1,5 +1,6 @@
 import NodeManager from "../../lib/node-manager"
 import axios from "axios";
+
 import Config from '../../config'
 //import store from "../store"
 
@@ -23,18 +24,15 @@ let initial = {
   coffee: {}
 };
 
-const reducer = (state = initial, action) => {
+export const reducer = (state = initial, action) => {
 
   console.log(action)
   switch (action.type) {
     case GET_COFFEE:
-      console.log("GET_COFFEE")
       return Object.assign({}, state, {coffee: action.coffee});
     case GET_DAYS:
-      console.log("GET_DAYS")
       return Object.assign({}, state, {days: action.days});
     case POST_COFFEE:
-      console.log('POST_COFFEE')
       let updatedTasks = [action.task].concat(state.tasks);
       return Object.assign({}, state, {tasks: updatedTasks});
     default:
@@ -42,8 +40,6 @@ const reducer = (state = initial, action) => {
   }
 
 };
-
-export default reducer;
 
 
 export const postNewCoffeeCup = () => {
@@ -89,8 +85,8 @@ export const register = (values, successCB, failureCB) => {
     })
 };
 
-export const getCoffeeIndex = () => dispatch => {
-  axios.get(`${API}/api/coffee/index`, NodeManager.getConfig())
+export const getCoffeeIndex = (user_id) => dispatch => {
+  axios.get(`${API}/pub/${user_id}/index`, NodeManager.getConfig())
     .then((response) => {
       return response.data;
     })
@@ -102,8 +98,8 @@ export const getCoffeeIndex = () => dispatch => {
     })
 };
 
-export const getCoffeeYearTotal = () => dispatch => {
-  axios.get(`${API}/api/coffee/year`, NodeManager.getConfig())
+export const getCoffeeYearTotal = (user_id) => dispatch => {
+  axios.get(`${API}/pub/${user_id}/year`, NodeManager.getConfig())
     .then((response) => {
       return response.data;
     })
@@ -115,8 +111,8 @@ export const getCoffeeYearTotal = () => dispatch => {
     })
 };
 
-export const getLastDays = () => dispatch => {
-  axios.get(`${API}/api/coffee/days`, NodeManager.getConfig())
+export const getLastDays = (user_id) => dispatch => {
+  axios.get(`${API}/pub/${user_id}/days`, NodeManager.getConfig())
     .then((response) => {
       return response.data;
     })

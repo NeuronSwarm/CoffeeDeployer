@@ -1,35 +1,30 @@
 import React from 'react';
-import {Router, Route, IndexRedirect, browserHistory} from 'react-router';
+import {Router, Route, browserHistory} from 'react-router-dom';
 import {connect} from 'react-redux';
 import Home from './Home';
 import Singularity from './Singularity';
 import Login from './auth/Login';
 import Register from './auth/Register';
 import CupUpdater from './CupUpdater';
-import { getCoffeeIndex } from '../redux/reducers/coffee-api';
 import WidgetGenerator from './WidgetGenerator';
+import Users from './Users';
 
 
 
-const m_routes = {
-  path: '/'
-}
-const Routes = ({getCoffeeIndex}) => {
+const Routes = () => {
   return (
-    <Router history={browserHistory} >
+    <div>
       <Route exact path= '/' component= {Singularity} />
-      <Route path= '/dashboard' component= {Home}/>
+      <Route exact path= '/dashboard' component= {Home}/>
+      <Route path= '/dashboard/:user_id' component= {Home}/>
       <Route path= '/coffee-update' component= {CupUpdater} />
       <Route path= '/login' component= {Login} />
       <Route path= '/register' component= {Register} />
       <Route path= '/countDown' component= {Singularity} />
       <Route path= '/widget' component= {WidgetGenerator} />
-      <Route path= '*' component= {Singularity} />
-    </Router>
+      <Route path= '/users' component= {Users} />
+    </div>
   )
 };
 
-const mapState = ({tasks}) => ({tasks});
-const mapDispatch = {getCoffeeIndex};
-
-export default connect(mapState, mapDispatch)(Routes);
+export default Routes;

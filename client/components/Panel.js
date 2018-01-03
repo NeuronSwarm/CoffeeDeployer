@@ -12,7 +12,7 @@ class Panel extends Component {
     return (
       <div className="panel1">
         <header className={this.props.data.container}>
-          <Today coffee={this.props.coffee} data= {this.props.data} type= {this.props.data.type} />
+          <Today coffee={this.props.coffeeObj.coffee} data= {this.props.data} type= {this.props.data.type} />
         </header>
         <div className='statistic-label'> {this.props.data.title}</div>
       </div>

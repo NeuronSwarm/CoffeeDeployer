@@ -6,6 +6,7 @@ import Panel from './Panel';
 import Container from './Container';
 import Container_Row from './Container_Row';
 import { getCoffeeIndex, getLastDays } from '../redux/reducers/coffee-api';
+import store from '../redux/store'
 
 class Row extends Component {
   constructor(props){
@@ -23,15 +24,17 @@ class Row extends Component {
   }
 
   render() {
+    console.log("Render Row")
+    console.log(this.props.coffee)
     return (
       <div>
         <Container_Row>
           <Container>
-            <Panel data = { this.m_data } coffee = { this.props.coffee } />
-            <Panel data = { this.drink_data } coffee = { this.props.coffee } />
+            <Panel data = { this.m_data } coffeeObj = { this.props.coffeeObj } />
+            <Panel data = { this.drink_data } coffeeObj = { this.props.coffeeObj } />
           </Container>
           <Container chart = {true}>
-            <Graph id = {this.props.graph.id} onEnter={ getLastDays }/>
+            <Graph user_id= {this.props.graph.user_id} id = {this.props.graph.id} />
           </Container>
         </Container_Row>
       </div>
@@ -44,4 +47,4 @@ class Row extends Component {
 
 const mapState = ({coffee}) => ({coffee});
 const mapDispatch = { getCoffeeIndex };
-export default connect(mapState, mapDispatch)(Row);
+export default connect(mapState)(Row);

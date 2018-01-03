@@ -23,8 +23,10 @@ class Graph extends Component {
     return true;
   }
   componentWillReceiveProps(nextProps){
-    if(nextProps.days){
-      this.config.data = nextProps.days.coffeeCups
+    console.log("Graph Props")
+    console.log(nextProps)
+    if(nextProps.coffee){
+      this.config.data = nextProps.coffee.days.coffeeCups
       createCharts(this.config)
     }
   }
@@ -34,7 +36,7 @@ class Graph extends Component {
   //     console.log(this.props.coffee.coffeeCups)
   // }
   componentDidMount() {
-    getLastDays()(store.dispatch)
+    getLastDays(this.props.user_id)(store.dispatch)
   }
 }
 
