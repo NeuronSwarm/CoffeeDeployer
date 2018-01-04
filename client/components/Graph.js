@@ -25,8 +25,8 @@ class Graph extends Component {
   componentWillReceiveProps(nextProps){
     console.log("Graph Props")
     console.log(nextProps)
-    if(nextProps.coffee){
-      this.config.data = nextProps.coffee.days.coffeeCups
+    if(nextProps.coffeeAPI){
+      this.config.data = nextProps.coffeeAPI.days.coffeeCups
       createCharts(this.config)
     }
   }
@@ -36,10 +36,11 @@ class Graph extends Component {
   //     console.log(this.props.coffee.coffeeCups)
   // }
   componentDidMount() {
+    console.log("Graph Mounted")
     getLastDays(this.props.user_id)(store.dispatch)
   }
 }
 
-const mapState = ({coffee, days}) => ({coffee, days});
+const mapState = ({coffeeAPI}) => ({coffeeAPI});
 const mapDispatch = { getLastDays }
 export default connect(mapState, mapDispatch)(Graph);

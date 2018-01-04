@@ -28,29 +28,39 @@ class Home extends Component {
   }
 
   render() {
-    if(this.state) this.props.coffee = this.state.coffee
-    console.log(this.props.coffee)
+    console.log("this home")
+    console.log(this)
+    if(this.props.coffeeAPI.coffee.user) this.coffeeObj = this.props.coffeeAPI
+    else this.coffeeObj = {}
     var name = ""
-    if(this.props.coffee) name = this.props.coffee.coffee.user 
+    this.title = "..."
+    if(this.coffeeObj.coffee){
+      name = this.coffeeObj.coffee.user 
+      this.title = `${name}'s Coffee Habits`
+    }
     return (
       //  <Route path={`${this.props.match.url}/:user_id` } component={Spacer}/>
       <div>
         <NavBar />
         <Spacer />
-        <div style={this.style}> { name + "'s Coffee Habits" } </div>
-        <Row coffeeObj ={this.props.coffee} graph = {this.graph1}/>
-        <GPSRow coffeeObj ={this.props.coffee} graph = {this.graph2}/>
+        <div style={this.style}> { this.title } </div>
+        <Row coffeeObj ={this.coffeeObj } graph = {this.graph1}/>
+        <GPSRow coffeeObj ={this.coffeeObj } graph = {this.graph2}/>
 
       </div>
     )
   }
+  componentWillReceiveProps(nextProps){
+  }
+
+  shouldComponentUpdate(){
+    return true;
+  }
   componentDidMount() {
-    console.log("Home mounted");
-    console.log(this.props.match.params.user_id)
     getCoffeeIndex(this.props.match.params.user_id)(store.dispatch)
   }
 }
 
-const mapState = ({coffee}) => ({coffee});
+const mapState = ({coffeeAPI}) => ({coffeeAPI});
 const mapDispatch = { getCoffeeIndex }
 export default connect(mapState, mapDispatch)(Home);

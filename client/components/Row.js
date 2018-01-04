@@ -24,8 +24,6 @@ class Row extends Component {
   }
 
   render() {
-    console.log("Render Row")
-    console.log(this.props.coffee)
     return (
       <div>
         <Container_Row>
@@ -41,10 +39,7 @@ class Row extends Component {
     )
   }
   componentDidMount() {
-    console.log("Row mounted");
   }
 }
 
-const mapState = ({coffee}) => ({coffee});
-const mapDispatch = { getCoffeeIndex };
-export default connect(mapState)(Row);
+export default Row;

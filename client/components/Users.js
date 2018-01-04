@@ -40,12 +40,9 @@ class Users extends Component {
     )
   }
   componentDidMount() {
-    console.log("Home mounted");
     getUsersIndex()(store.dispatch)
   }
   shouldComponentUpdate(nextProps){
-    console.log("Updating..");
-    console.log(nextProps);
     this.state.users  = nextProps.users.users
     return true
   }

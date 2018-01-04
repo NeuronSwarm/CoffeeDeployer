@@ -7,7 +7,7 @@ import {combineForms} from 'react-redux-form';
 
 //var initialUserState = { name: ''}
 const store = createStore(
-  combineReducers( {coffee, users } ),
+  combineReducers( {coffeeAPI: coffee, users } ),
   applyMiddleware(
     thunkMiddleware
   )

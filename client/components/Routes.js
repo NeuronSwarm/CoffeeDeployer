@@ -15,8 +15,7 @@ const Routes = () => {
   return (
     <div>
       <Route exact path= '/' component= {Singularity} />
-      <Route exact path= '/dashboard' component= {Home}/>
-      <Route path= '/dashboard/:user_id' component= {Home}/>
+      <Route exact path= '/dashboard/:user_id' component= {Home}/>
       <Route path= '/coffee-update' component= {CupUpdater} />
       <Route path= '/login' component= {Login} />
       <Route path= '/register' component= {Register} />
