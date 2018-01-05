@@ -24,7 +24,6 @@ var createCharts = function(config){
     if(day < 1) { 
       lastMonthDay = 31 + day
       month = (d.getMonth() != 0) ? monthNames[d.getMonth() - 1] : monthNames[11]
-      console.log(month)
     }
     return month + ' ' + lastMonthDay.toString()
   }

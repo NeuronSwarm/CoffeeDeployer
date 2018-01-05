@@ -34,7 +34,7 @@ export const reducer = (state = initial, action) => {
     case GET_COFFEE:
       return Object.assign({}, state, {coffee: action.coffee});
     case GET_DAYS:
-      return Object.assign({}, state, {days: action.days});
+      return Object.assign({}, state, {days: action.days, serverResponse: true});
     case POST_COFFEE:
       let updatedTasks = [action.task].concat(state.tasks);
       return Object.assign({}, state, {tasks: updatedTasks});

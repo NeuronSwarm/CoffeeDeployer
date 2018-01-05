@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import createCharts from '../coffee-data'
 import { getLastDays } from '../redux/reducers/coffee-api';
 import store from '../redux/store';
+import ReactLoading from 'react-loading';
 
 class Graph extends Component {
   constructor(props){
@@ -13,9 +14,14 @@ class Graph extends Component {
   }
   render() {
     return (
-        <div className="charts-container">
-          <div className="charts-panel">
-            <canvas id={this.props.id}></canvas></div></div>
+          <div className="charts-container">
+            <div className="charts-panel">
+              { this.props.coffeeAPI.serverResponse
+                  ? null
+                  : <ReactLoading className='loader' delay={0}
+                                  type='bubbles'  color='green'
+                                  height='335px' width='175px' /> }
+              <canvas id={this.props.id}></canvas></div></div>
     )
   }
 
