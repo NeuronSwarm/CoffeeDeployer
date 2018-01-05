@@ -26,7 +26,8 @@ class Graph extends Component {
     console.log("Graph Props")
     console.log(nextProps)
     if(nextProps.coffeeAPI){
-      this.config.data = nextProps.coffeeAPI.days.coffeeCups
+      this.config.data = nextProps.coffeeAPI.days.coffeeCups;
+      this.config.user = nextProps.coffeeAPI.coffee.user;
       createCharts(this.config)
     }
   }

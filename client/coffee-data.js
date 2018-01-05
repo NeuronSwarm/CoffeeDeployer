@@ -9,6 +9,7 @@ var toArray = (data) => {
 }
 var createCharts = function(config){
   var graphID = config.id
+  var user = config.user[0].toUpperCase() + config.user.substring(1, config.user.length)
   var graphData = toArray(config.data) || [2, 2, 3, 2, 3, 3, 4, 2, 3, 4]
 
 
@@ -16,13 +17,23 @@ var createCharts = function(config){
   "July", "Aug", "Sept", "Oct", "Nov", "Dec"
   ];
   var d = new Date
-  var daysAgo = function(count){ return monthNames[d.getMonth()] + ' ' + (d.getDate() - count).toString()}
+  var daysAgo = function(count){ 
+    var day = d.getDate() - count;
+    var lastMonthDay = day;
+    var month = monthNames[d.getMonth()];
+    if(day < 1) { 
+      lastMonthDay = 31 + day
+      month = (d.getMonth() != 0) ? monthNames[d.getMonth() - 1] : monthNames[11]
+      console.log(month)
+    }
+    return month + ' ' + lastMonthDay.toString()
+  }
   var optsWhsl = {
     type: 'line',
     data: {
-      labels: [, daysAgo(5),, daysAgo(4),,daysAgo(2),, daysAgo(1),, daysAgo(0),],
+      labels: [, daysAgo(8),, daysAgo(6),,daysAgo(4),, daysAgo(2),, daysAgo(0)],
       datasets: [{
-        label: "Beverly's cups",
+        label: `${user}'s cups`,
         fill: false,
         lineTension: 0.1,
         backgroundColor: "#32A7EC",

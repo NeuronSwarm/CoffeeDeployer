@@ -28,8 +28,6 @@ class Home extends Component {
   }
 
   render() {
-    console.log("this home")
-    console.log(this)
     if(this.props.coffeeAPI.coffee.user) this.coffeeObj = this.props.coffeeAPI
     else this.coffeeObj = {}
     var name = ""

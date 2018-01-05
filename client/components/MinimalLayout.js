@@ -1,9 +1,6 @@
 import React, {Component} from 'react';
-import { connect } from 'react-redux';
-import NavBar from './NavBar';
-import SimpleButton from './SimpleButton';
 
-class CupUpdater extends Component {
+class MinimalLayout extends Component {
   constructor(props){
     super(props);
   }
@@ -15,12 +12,11 @@ class CupUpdater extends Component {
     return (
       <div className={'mobile-container'} style={ this.SetPageHeight() }>
         <div className="appbox">
-          <SimpleButton />
+          {this.props.children}
         </div>
       </div>
     )
   }
 }
 
-const mapState = ({coffee}) => ({coffee});
-export default connect(mapState)(CupUpdater);
+export default MinimalLayout;

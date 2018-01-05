@@ -1,5 +1,6 @@
 import NodeManager from "../../lib/node-manager"
 import axios from "axios";
+import store from "../store"
 
 import Config from '../../config'
 //import store from "../store"
@@ -7,8 +8,7 @@ import Config from '../../config'
 const POST_COFFEE = "POST_COFFEE";
 const GET_COFFEE = "GET_COFFEE";
 const GET_DAYS = "GET_DAYS";
-const CHANGE_STATUS = "CHANGE_STATUS";
-const DELETE_TASK = "DELETE_TASK";
+const GET_AUTH = "GET_AUTH"
 
 const API = Config.site.api
 /////////////////ACTIONS//////////////
@@ -16,6 +16,7 @@ const API = Config.site.api
 const addCoffee = () => ({type: POST_COFFEE});
 const getCoffee = (coffee) => ({ type: GET_COFFEE, coffee });
 const getDays = (days) => ({ type: GET_DAYS, days });
+const getAuth = (auth) => ({ type: GET_AUTH, auth });
 
 
 /////////////////REDUCER/////////////////////
@@ -28,6 +29,8 @@ export const reducer = (state = initial, action) => {
 
   console.log(action)
   switch (action.type) {
+    case GET_AUTH:
+      return Object.assign({}, state, {auth: action.auth, authResponse: true});
     case GET_COFFEE:
       return Object.assign({}, state, {coffee: action.coffee});
     case GET_DAYS:
@@ -54,6 +57,18 @@ export const postNewCoffeeCup = () => {
     })
 };
 
+export const authCheck = (cb) => {
+  axios.get(`${API}/auth/status`, NodeManager.getConfig())
+    .then((response) => {
+      return response.data
+    })
+    .then((authData) => {
+      store.dispatch(getAuth(authData))
+    })
+    .catch((err, another) => {
+      console.error.bind(err);
+    })
+}
 export const login = (values, successCB, failureCB) => {
   // dispatch(addTask({title: task, metafields: [{value: false}], slug: formatSlug(task)}));
   console.log("Attempt Techdrone Login")
