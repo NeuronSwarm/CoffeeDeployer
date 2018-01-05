@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import NavBar from './NavBar';
 import { authCheck } from '../redux/reducers/coffee-api';
 import Loader from './Loader'
+import Login from './auth/Login'
 
 class AuthManager extends Component {
   constructor(props){
@@ -14,7 +15,7 @@ class AuthManager extends Component {
       if(this.props.coffeeAPI.auth.loggedIn)
         return this.props.children
       else
-        return <OopsLogin/>
+        return <Login redirect={true} />
     }
     else
       return <Loader/>

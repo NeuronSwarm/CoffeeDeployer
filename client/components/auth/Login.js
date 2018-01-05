@@ -8,12 +8,13 @@ import { login} from '../../redux/reducers/coffee-api';
 class Login extends Component {
   constructor(props){
     super(props);
-    this.form = { style: { maxWidth: '300px'} }
+    this.warning = { color: 'red'}
   }
 
   render() {
     return (
       <div className="mobile-container">
+        { this.props.redirect ? <div style={this.warning}> please login to use that feature. </div> : null }
         <h1>Login Page</h1>
         <p className="lead"> For Coffee Fanatics</p>
         <br/>

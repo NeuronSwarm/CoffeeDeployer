@@ -5,7 +5,9 @@ import MinimalLayout from './MinimalLayout';
 const Loader = () => (
   <MinimalLayout>
     <div>
-      <ReactLoading className='loader' type='bubbles' color='green' height='335px' width='175px' />
+      <ReactLoading className='loader' delay={0}
+                    type='bubbles'  color='green'
+                    height='335px' width='175px' />
     </div>
   </MinimalLayout>
 );

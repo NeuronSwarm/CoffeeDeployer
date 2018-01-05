@@ -1,5 +1,5 @@
 import React from 'react';
-import {Router, Route, browserHistory} from 'react-router-dom';
+import {Switch, Route, browserHistory} from 'react-router-dom';
 import {connect} from 'react-redux';
 import NavBar from './NavBar';
 import Home from './Home';
@@ -14,9 +14,7 @@ import Loader from './Loader'
 
 const Routes = () => {
   return (
-    <div>
-      <NavBar />
-      <Route exact path= '/' component= {Singularity} />
+    <Switch>
       <Route exact path= '/dashboard/:user_id' component= {Home}/>
       <Route path= '/coffee-update' component= {CupUpdaterRoute} />
       <Route path= '/login' component= {Login} />
@@ -25,7 +23,8 @@ const Routes = () => {
       <Route path= '/widget' component= {WidgetGenerator} />
       <Route path= '/users' component= {Users} />
       <Route path= '/loading' component= {Loader} />
-    </div>
+      <Route component= {Singularity} />
+    </Switch>
   )
 };
 

@@ -4,6 +4,7 @@ import NavBar from './NavBar';
 import SimpleButton from './SimpleButton';
 import AuthManager from './AuthManager';
 import CupUpdater from './CupUpdater';
+import Spacer from './Spacer';
 
 class CupUpdaterRoute extends Component {
   constructor(props){
@@ -12,9 +13,13 @@ class CupUpdaterRoute extends Component {
 
   render() {
     return (
-      <AuthManager>
-        <CupUpdater/>
-      </AuthManager>
+      <div>
+        <NavBar/>
+        <Spacer/>
+        <AuthManager>
+          <CupUpdater/>
+        </AuthManager>
+      </div>
     )
   }
 }
