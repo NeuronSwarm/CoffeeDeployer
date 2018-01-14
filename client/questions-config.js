@@ -6,6 +6,12 @@ export default {
       details: {
         name: 'Name(s) of travelers?',
         answer: {
+          type: 'TEXTLIST',
+          list: [
+            { id: 1, placeholder: 'first traveler', model: '.first'},
+            { id: 2, placeholder: 'second traveler', model: '.second'},
+            { id: 3, placeholder: 'third traveler', model: '.third'}
+          ],
           dataName: 'travelers',
           dataID: {
             idOne: 'travelersFirst',
@@ -25,6 +31,7 @@ export default {
       details: {
         name: 'what is your departure date?',
         answer: {
+          type: 'RADIOLIST',
           dataName: 'departure',
           dataID: {
             idOne: 'departureDateSoon',
@@ -44,6 +51,7 @@ export default {
       details: {
         name: 'what is your travel destination?',
         answer: {
+          type: 'DATE',
           dataName: 'destination',
           dataID: {
             idOne: 'departureLocationSoon',
@@ -53,7 +61,7 @@ export default {
             optionOne: 'sooner',
             optionTwo: 'later',
           },
-          dataModel: '.destionation',
+          dataModel: '.destination',
         }
       },
       current: false,
