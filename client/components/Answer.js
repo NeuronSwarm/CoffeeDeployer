@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
 import { Control } from 'react-redux-form';
-import Answer from './Answer';
 //import SimpleButton from './SimpleButton';
 
-class Question extends Component {
+class Answer extends Component {
   constructor(props){
     super(props);
     this.radioStyle = { zIndex: 1,
@@ -22,13 +21,15 @@ class Question extends Component {
   }
 
   render() {
+    var answer = this.props.details
     return (
-    <div style={{display: this.isCurrent() }}>
-      <label > { this.props.details.name } </label>
-        <div style={this.divStyle()}>
-          <Answer details= { this.props.details.answer } />
-        </div>
-    </div>
+      <div>
+        <Control.radio name={answer.dataName} id={answer.dataID.idOne} value={answer.dataValue.optionOne} style={this.radioStyle} model={answer.dataModel}  />
+        <label htmlFor={answer.dataID.idOne}> { answer.dataID.idOne }</label>
+        <div style={{display: 'inline-block', width: '3%'}}></div>
+        <Control.radio name={answer.dataName} id={answer.dataID.idTwo} value={answer.dataValue.optionTwo} style={this.radioStyle} model={answer.dataModel}  />
+        <label htmlFor={answer.dataID.idTwo}>{ answer.dataID.idTwo }</label>
+      </div>
 
     )
   }
@@ -36,4 +37,4 @@ class Question extends Component {
   }
 }
 
-export default Question;
+export default Answer;

@@ -42,10 +42,10 @@ class SliderForm extends Component {
 
           <button type="button" onClick={this.handleBack.bind(this)}
                   className="btn btn-default">Back</button>
+          <div style={{display: 'inline-block', width: '2%'}}></div>
           <button type="button" onClick={this.handleNext.bind(this)}
                   className="btn btn-primary">Next</button>
-          <div style={{display: 'inline-block', width: '3%'}}></div>
-          <button type="submit" className="btn btn-primary">Submit</button>
+          <button style={ {display: 'none' } } type="submit" className="btn btn-primary">Submit</button>
         </LocalForm>
       </div>
     </div>

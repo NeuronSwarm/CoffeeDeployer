@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import { Control } from 'react-redux-form';
-import Answer from './Answer';
 //import SimpleButton from './SimpleButton';
 
 class Question extends Component {
@@ -23,10 +22,14 @@ class Question extends Component {
 
   render() {
     return (
-    <div style={{display: this.isCurrent() }}>
-      <label > { this.props.details.name } </label>
+    <div >
+      <label > What did you eat for dinner </label>
         <div style={this.divStyle()}>
-          <Answer details= { this.props.details.answer } />
+          <Control.radio name="type" id="DailyCounter" value="daily" style={this.radioStyle} model=".type"  />
+          <label htmlFor="DailyCounter">Daily</label>
+          <div style={{display: 'inline-block', width: '3%'}}></div>
+          <Control.radio name="type" id="AnnualCounter" value="annual" style={this.radioStyle} model=".type" />
+          <label htmlFor="AnnualCounter">Annual</label>
         </div>
     </div>
 
