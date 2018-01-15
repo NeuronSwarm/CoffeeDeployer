@@ -23,7 +23,7 @@ class TravelResults extends Component {
           <div>
             <h2> RESULTS </h2>
             
-            <div style={ { padding: '0 30%' } }>
+            <div style={ { padding: '0 5%' } }>
               <pre> {localStorage.getItem('sampleForm')} </pre>
             </div>
           </div>
