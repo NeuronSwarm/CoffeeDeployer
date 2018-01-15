@@ -8,10 +8,10 @@ export default {
         answer: {
           type: 'TEXTLIST',
           list: [
-            { id: 1, placeholder: 'first traveler', model: '.first'},
-            { id: 2, placeholder: 'second traveler', model: '.second'},
-            { id: 3, placeholder: 'third traveler', model: '.third'},
-            { id: 4, placeholder: 'fourth traveler', model: '.fourth'}
+            { id: 1, placeholder: 'first traveler', model: '.travelers.first'},
+            { id: 2, placeholder: 'second traveler', model: '.travelers.second'},
+            { id: 3, placeholder: 'third traveler', model: '.travelers.third'},
+            { id: 4, placeholder: 'fourth traveler', model: '.travelers.fourth'}
           ],
           dataName: 'travelers',
           dataID: {
