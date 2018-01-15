@@ -4,6 +4,11 @@ import { Control } from 'react-redux-form';
 class AnswerTextList extends Component {
   constructor(props){
     super(props);
+    // Need padding too
+    this.inputStyle = { color: 'black',
+                        height: '40px',
+                        width: '100%' }
+    this.containerStyle = { paddingBottom: '15px' }
   }
 
   render() {
@@ -11,10 +16,12 @@ class AnswerTextList extends Component {
     return (
       <div>
       { list.map( (input) =>  
-          <Control.text key={input.id}
+          <div key={input.id} style={this.containerStyle}>
+          <Control.text 
                         placeholder={input.placeholder}  
                         model={input.model}  
-                        {...this.props.default} /> ) }
+                        style={this.inputStyle} /></div> ) }
+          
       </div>
 
     )

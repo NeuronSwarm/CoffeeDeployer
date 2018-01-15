@@ -10,7 +10,8 @@ export default {
           list: [
             { id: 1, placeholder: 'first traveler', model: '.first'},
             { id: 2, placeholder: 'second traveler', model: '.second'},
-            { id: 3, placeholder: 'third traveler', model: '.third'}
+            { id: 3, placeholder: 'third traveler', model: '.third'},
+            { id: 4, placeholder: 'fourth traveler', model: '.fourth'}
           ],
           dataName: 'travelers',
           dataID: {
@@ -51,7 +52,7 @@ export default {
       details: {
         name: 'what is your travel destination?',
         answer: {
-          type: 'DATE',
+          type: 'RADIOLIST',
           dataName: 'destination',
           dataID: {
             idOne: 'departureLocationSoon',

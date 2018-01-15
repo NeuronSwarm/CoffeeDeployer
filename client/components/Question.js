@@ -6,15 +6,13 @@ import Answer from './Answer';
 class Question extends Component {
   constructor(props){
     super(props);
-    this.radioStyle = { zIndex: 1,
-                        height: '20px', width: '20px',
-                        opacity: 1, display: 'inline-block'}
+    this.questionStyle = { fontSize: '24px' }
     this.display = this.props.current ? 'hidden' : 'block'
   }
   divStyle(color = 'grey', height = '70px'){
     return { padding: '10px',
               background: color,
-              height: height,
+              minHeight: height,
               maxWidth: '400px',
               marginBottom: '10px'} }
   isCurrent(){
@@ -24,8 +22,8 @@ class Question extends Component {
   render() {
     return (
     <div style={{display: this.isCurrent() }}>
-      <label > { this.props.details.name } </label>
-        <div style={this.divStyle()}>
+      <label style={this.questionStyle}> { this.props.details.name } </label>
+        <div style={this.divStyle('grey', '140px')}>
           <Answer details= { this.props.details.answer } />
         </div>
     </div>
