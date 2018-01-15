@@ -8,6 +8,8 @@ import Login from './auth/Login';
 import Register from './auth/Register';
 import CupUpdaterRoute from './CupUpdaterRoute';
 import WidgetGenerator from './WidgetGenerator';
+import TravelForm from './TravelForm';
+import TravelResults from './TravelResults';
 import Users from './Users';
 
 import Loader from './Loader'
@@ -21,6 +23,8 @@ const Routes = () => {
       <Route path= '/register' component= {Register} />
       <Route path= '/countDown' component= {Singularity} />
       <Route path= '/widget' component= {WidgetGenerator} />
+      <Route path= '/travel' component= {TravelForm} />
+      <Route path= '/results' component= {TravelResults} />
       <Route path= '/users' component= {Users} />
       <Route path= '/loading' component= {Loader} />
       <Route component= {Singularity} />
