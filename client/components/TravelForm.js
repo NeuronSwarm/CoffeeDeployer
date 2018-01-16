@@ -9,6 +9,7 @@ import initState from '../init-state';
 class TravelForm extends Component {
   constructor(props) {
     super(props)
+    this.mobileStyle = {maxWidth: '600px'}
     var hiddenStyle = this.hiddenStyle = { display: 'none' }
     var blockStyle = this.blockStyle = { display: 'block' }
     initState( {title: blockStyle, form: hiddenStyle}, this)
@@ -19,13 +20,12 @@ class TravelForm extends Component {
   }
 
   render() {
-    console.log(this.state.title)
     return (
-      <div >
+      <div style={this.mobileStyle}>
         <NavBar />
         <div style={this.state.title} >
           <StartQuote />
-          <div className="bottom padding">
+          <div style={this.mobileStyle } className="bottom padding">
             <button type="button" className="btn btn-success mobile-btn"  onClick={this.handleNext.bind(this)} >
               GET STARTED
             </button>

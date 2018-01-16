@@ -26,8 +26,10 @@ class TravelResults extends Component {
         <NavBar />
         <MinimalLayout>
           <div>
-            <h2> RESULTS </h2>
+            <h2> THANK YOU </h2>
+            <div style={{marginBottom: '100px'}}> We'll be in touch soon with an amazing quote. </div>
             
+            <h3> Debug Panel </h3>
             <div style={ { padding: '0 5%' } }>
               <pre dangerouslySetInnerHTML={ { __html: this.getResults() } }>
               </pre> 

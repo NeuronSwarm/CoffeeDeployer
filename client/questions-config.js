@@ -32,7 +32,7 @@ export default {
       details: {
         name: 'what is your departure date?',
         answer: {
-          type: 'RADIOLIST',
+          type: 'DATE',
           dataName: 'departure',
           dataID: {
             idOne: 'departureDateSoon',
@@ -52,15 +52,18 @@ export default {
       details: {
         name: 'what is your travel destination?',
         answer: {
-          type: 'DATE',
+          type: 'RADIOLIST',
+          list: [
+            'Hawaii',
+            'Carribean',
+            'Italy'
+          ],
           dataName: 'destination',
-          dataID: {
-            idOne: 'departureLocationSoon',
-            idTwo: 'departureLocationLater'
-          },
+          dataID: 'departurelocation',
           dataValue: {
-            optionOne: 'sooner',
-            optionTwo: 'later',
+            optionOne: 'Hawaii',
+            optionTwo: 'Carribean',
+            optionThree: 'Italy'
           },
           dataModel: '.destination',
         }

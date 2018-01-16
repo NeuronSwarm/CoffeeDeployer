@@ -35,8 +35,9 @@ class AnswerDate extends Component {
     }
     return (
       <div style={this.dateStyle}>
-        <Control.text model=".date"    
+        <Control.text model={this.props.answer.dataModel}    
                  component={dateComponent.bind(this)}
+                 defaultValue={this.dateFormat(new Date)}
                  />
           
       </div>

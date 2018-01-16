@@ -16,7 +16,7 @@ class StartQuote extends Component {
 
 
   render() {
-    var fullScreen = {width: innerWidth, height: innerHeight}
+    var fullScreen = {width: Math.min(innerWidth, 600), height: innerHeight}
     return (
     <div style={this.props.style}>
       

@@ -23,11 +23,14 @@ class AnswerTextList extends Component {
     var answer = this.props.answer
     return (
       <div>
-        <Control.radio name={answer.dataName} id={answer.dataID.idOne} value={answer.dataValue.optionOne} style={this.radioStyle} model={answer.dataModel}  />
-        <label htmlFor={answer.dataID.idOne}> { answer.dataValue.optionOne }</label>
-        <div style={{display: 'inline-block', width: '3%'}}></div>
-        <Control.radio name={answer.dataName} id={answer.dataID.idTwo} value={answer.dataValue.optionTwo} style={this.radioStyle} model={answer.dataModel}  />
-        <label htmlFor={answer.dataID.idTwo}>{ answer.dataValue.optionTwo }</label>
+
+        { answer.list.map( (input,i) => 
+            <div key={i} style={{display:'inline-block', padding: '0 5px'}} >
+              <Control.radio name={answer.dataName} id={`${answer.dataID}${i}`} value={input} style={this.radioStyle} model={answer.dataModel}  />
+              <label htmlFor={input}> { input }</label>
+            </div>
+          )
+        }
       </div>
     )
   }
