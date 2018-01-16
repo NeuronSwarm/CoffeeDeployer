@@ -12,12 +12,12 @@ class AnswerDate extends Component {
     initState({selectedDay: new Date, isDisabled: false}, this)
   }
   dateFormat(date){
-    return `${date.month()+1}/${date.date()}/${date.year()}`
+    return `${date.getMonth()+1}/${date.getDate()}/${date.getFullYear()}`
   }
   handleChange(props){
     return (selectedDay) => {
       this.setState({selectedDay});
-      props.onChange(selectedDay)
+      props.onChange(this.dateFormat(selectedDay))
     }
   }
   render() {
@@ -30,7 +30,8 @@ class AnswerDate extends Component {
                           }
       return <DayPickerInput  value={this.state.selectedDay}
                               onDayChange={this.handleChange(props)}
-                              dayPickerProps={calendarProps} />
+                              dayPickerProps={calendarProps}
+                              inputProps={{readOnly: true}} />
     }
     return (
       <div style={this.dateStyle}>
