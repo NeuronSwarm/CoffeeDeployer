@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { Control } from 'react-redux-form';
 import AnswerTextList from './AnswerTextList';
 import AnswerRadioList from './AnswerRadioList';
-// import AnswerDate from './AnswerDate';
+import AnswerDate from './AnswerDate';
 import NotFound from './NotFound';
 
 class AnswerSwitch extends Component {
@@ -20,9 +20,9 @@ class AnswerSwitch extends Component {
       case "RADIOLIST": 
         selectedChild = <AnswerRadioList answer={answer}/>
         break;
-      // case "DATE": 
-      //   selectedChild = <AnswerDate answer={answer}/>
-      //   break;
+      case "DATE": 
+        selectedChild = <AnswerDate answer={answer}/>
+        break;
       default:
         selectedChild = <NotFound />
       

@@ -167,6 +167,21 @@ canvas {
 .show {
   display: 'block'
 }
+#datepickerUI1 {
+  width: 100%
+}
+.datePopper {
+  width: 200px;
+  height: 200px;
+}
+.datePopper > div {
+  width: 100%;
+  height: 100%;
+}
+.datePopper > div > div {
+  width: 100%;
+  height: 100%;
+}
 pre {
   outline: 1px solid #ccc;
   padding: 5px;

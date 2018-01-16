@@ -52,7 +52,7 @@ export default {
       details: {
         name: 'what is your travel destination?',
         answer: {
-          type: 'RADIOLIST',
+          type: 'DATE',
           dataName: 'destination',
           dataID: {
             idOne: 'departureLocationSoon',

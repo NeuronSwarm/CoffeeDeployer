@@ -35,6 +35,9 @@ class NavBar extends Component {
               <li>
                 <a href="/users">Friends</a>
               </li>
+              <li>
+                <a href="/travel">Travel</a>
+              </li>
             </ul>
           </div>
         </div>
