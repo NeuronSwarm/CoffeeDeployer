@@ -10,6 +10,7 @@ import CupUpdaterRoute from './CupUpdaterRoute';
 import WidgetGenerator from './WidgetGenerator';
 import TravelForm from './TravelForm';
 import TravelResults from './TravelResults';
+import FormDirector from './FormDirector';
 import Users from './Users';
 
 import Loader from './Loader'
@@ -24,6 +25,7 @@ const Routes = () => {
       <Route path= '/countDown' component= {Singularity} />
       <Route path= '/widget' component= {WidgetGenerator} />
       <Route path= '/travel' component= {TravelForm} />
+      <Route path= '/form/:form_name' component= {FormDirector} />
       <Route path= '/results' component= {TravelResults} />
       <Route path= '/users' component= {Users} />
       <Route path= '/loading' component= {Loader} />

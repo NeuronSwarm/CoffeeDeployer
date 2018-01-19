@@ -20,7 +20,7 @@ let initial = {
 
 export const reducer = (state = initial, action) => {
 
-  console.log(action)
+  // console.log(action)
   switch (action.type) {
     case GET_USERS:
       return Object.assign({}, state, {users: action.users});

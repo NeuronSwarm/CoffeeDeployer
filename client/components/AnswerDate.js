@@ -3,7 +3,6 @@ import { Control } from 'react-redux-form';
 import initState from '../init-state';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 
-import 'react-day-picker/lib/style.css';
 
 class AnswerDate extends Component {
   constructor(props){
@@ -38,6 +37,7 @@ class AnswerDate extends Component {
         <Control.text model={this.props.answer.dataModel}    
                  component={dateComponent.bind(this)}
                  defaultValue={this.dateFormat(new Date)}
+                 className="date"
                  />
           
       </div>

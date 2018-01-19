@@ -27,7 +27,7 @@ class TravelResults extends Component {
         <MinimalLayout>
           <div>
             <h2> THANK YOU </h2>
-            <div style={{marginBottom: '100px'}}> We'll be in touch soon with an amazing quote. </div>
+            <div style={{marginBottom: '100px'}}> We'll be in touch soon with some stuff. </div>
             
             <h3> Debug Panel </h3>
             <div style={ { padding: '0 5%' } }>

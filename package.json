@@ -9,6 +9,7 @@
     "build": "webpack -p",
     "build-dev": "webpack -w",
     "build-sass": "node-sass -w ./client/styles/main.scss -o ./client/styles/mainSheet",
+    "build-sassy": "node-sass -w ./client/styles/placeholders.scss -o ./client/styles/mainSheet",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

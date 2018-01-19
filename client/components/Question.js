@@ -11,7 +11,6 @@ class Question extends Component {
   }
   divStyle(color = 'grey', height = '70px'){
     return { padding: '10px',
-              background: color,
               minHeight: height,
               maxWidth: '400px',
               marginBottom: '10px'} }
@@ -22,7 +21,7 @@ class Question extends Component {
   render() {
     return (
     <div style={{display: this.isCurrent() }}>
-      <label style={this.questionStyle}> { this.props.details.name } </label>
+      <div style={this.questionStyle}> { this.props.details.name } </div>
         <div style={this.divStyle('grey', '140px')}>
           <Answer details= { this.props.details.answer } />
         </div>

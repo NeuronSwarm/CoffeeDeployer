@@ -27,7 +27,7 @@ let initial = {
 
 export const reducer = (state = initial, action) => {
 
-  console.log(action)
+  //console.log(action)
   switch (action.type) {
     case GET_AUTH:
       return Object.assign({}, state, {auth: action.auth, authResponse: true});

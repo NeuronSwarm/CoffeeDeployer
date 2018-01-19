@@ -7,6 +7,8 @@ import { LocalForm, Control } from 'react-redux-form';
 import EmbeddableWidget from '../lib/embeddable-widget'
 import Config from '../questions-config'
 import initState from '../init-state'
+import Life from '../forms/life'
+import MultiGame from '../forms/multigame'
 
 class SliderForm extends Component {
   constructor(props){
@@ -19,6 +21,20 @@ class SliderForm extends Component {
     var isHidden = {display: 'none'}
     var isDisplayed = {display: 'inline-block'}
     return this.state.current == 1 ? isHidden : isDisplayed
+  }
+  connectToConfig(){
+    var loadableConfig;
+    switch (this.props.formName){
+      case "life": 
+        loadableConfig = Life;
+        break;
+      case "multigame": 
+        loadableConfig = MultiGame;
+        break;
+      default:
+        loadableConfig = Config
+    }
+    return loadableConfig.questions
   }
   // event Handlers
   handleBack(){ this.setState({current: this.state.current - 1 }); this.counter = 0; }
@@ -43,9 +59,10 @@ class SliderForm extends Component {
           onUpdate={(form) =>  this.handleUpdate(form)}
           onChange={(values) => this.handleChange(values)}
           onSubmit={(values) => this.handleSubmit(values)}
+          className="form-label form-css-label"
         >
 
-          <QuestionList current = {this.state.current} questions={Config.questions}/>
+          <QuestionList current = {this.state.current} questions={this.connectToConfig()}/>
 
           <div className="left mobile-form-btn">
             <button type="button" onClick={this.handleBack.bind(this)}

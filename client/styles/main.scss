@@ -1,3 +1,5 @@
+@import "../../node_modules/react-day-picker/lib/style";
+
 * {
   box-sizing: border-box;
 }
@@ -167,6 +169,9 @@ canvas {
 .show {
   display: 'block'
 }
+.date {
+  background: #555;
+}
 #datepickerUI1 {
   width: 100%
 }
@@ -195,3 +200,17 @@ pre {
 .boolean { color: #267ad0; }
 .null { color: #267ad0; }
 .key { color: #99dcfe; }
+
+/*
+input[type=text] {
+  background: rgba(0,0,0,0);
+  border: 0;
+  border-bottom: 2px #15b solid;
+  box-shadow: none;
+  outline: none;
+  color: white;
+}
+::placeholder {
+  color: #ddd
+}
+*/
