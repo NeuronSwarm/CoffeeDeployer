@@ -33,7 +33,7 @@ class Graph extends Component {
     console.log(nextProps)
     if(nextProps.coffeeAPI){
       this.config.data = nextProps.coffeeAPI.days.coffeeCups;
-      this.config.user = nextProps.coffeeAPI.coffee.user;
+      this.config.user = nextProps.coffeeAPI.days.user;
       createCharts(this.config)
     }
   }
