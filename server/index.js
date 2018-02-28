@@ -30,20 +30,6 @@ app.use(function (err, req, res, next) {
   console.error(err.stack);
   res.status(err.status || 500).send(err.message || 'Internal server error.');
 });
-// 404
-app.use(function(req, res, next){
-  res.status(404);
-
-  // respond with json
-  if (req.accepts('json')) {
-    res.send({ error: 'Not found' });
-    return;
-  }
-
-  // default to plain-text. send()
-  res.type('txt').send('Not found');
-});
-
 
 // handle every other route with index.html, which will contain
 // a script tag to our application's JavaScript file(s).
@@ -62,4 +48,18 @@ app.post('/upload', (req, res) => {
 
 app.listen(PORT, function () {
   console.log("Rockin out on port " + PORT + " homie");
+});
+
+// 404
+app.use(function(req, res, next){
+  res.status(404);
+
+  // respond with json
+  if (req.accepts('json')) {
+    res.send({ error: 'Not found' });
+    return;
+  }
+
+  // default to plain-text. send()
+  res.type('txt').send('Not found');
 });
