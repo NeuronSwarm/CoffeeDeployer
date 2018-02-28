@@ -10,6 +10,7 @@ import CupUpdaterRoute from './CupUpdaterRoute';
 import WidgetGenerator from './WidgetGenerator';
 import TravelForm from './TravelForm';
 import TravelResults from './TravelResults';
+import UploadContainer from './UploadContainer';
 import FormDirector from './FormDirector';
 import Users from './Users';
 
@@ -28,6 +29,7 @@ const Routes = () => {
       <Route path= '/form/:form_name' component= {FormDirector} />
       <Route path= '/results' component= {TravelResults} />
       <Route path= '/users' component= {Users} />
+      <Route path= '/upload' component= {UploadContainer} />
       <Route path= '/loading' component= {Loader} />
       <Route component= {Singularity} />
     </Switch>

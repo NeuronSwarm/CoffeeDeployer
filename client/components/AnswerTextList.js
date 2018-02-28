@@ -3,9 +3,6 @@ import { Control } from 'react-redux-form';
 import initState from '../init-state'
 import * as styles from '../styles/mainSheet/placeholders.css'
 
-console.log("styles")
-console.log(styles)
-
 class AnswerTextList extends Component {
   constructor(props){
     super(props);
