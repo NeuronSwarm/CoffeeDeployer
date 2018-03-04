@@ -29,7 +29,7 @@ export default class Uploader extends React.Component {
     return (
       <section>
         <div className="dropzone">
-          <Dropzone className="inner-drop" onDrop={this.onDrop.bind(this)}>
+          <Dropzone maxSize={12000000000}className="inner-drop" onDrop={this.onDrop.bind(this)}>
             <p>Try dropping some files here, or click to select files to upload.</p>
           </Dropzone>
         </div>
