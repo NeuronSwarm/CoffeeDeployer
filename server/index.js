@@ -15,13 +15,6 @@ app.use(bodyParser.json());
 app.use(express.static(path.resolve(__dirname, '..', 'client')));
 app.use(express.static(path.resolve(__dirname, '..', 'node_modules')));
 app.use(express.static(path.resolve(__dirname, '..', 'public')));
-// app.use(express.static(path.resolve(__dirname, '..', 'client', 'styles', 'mainSheet', 'main.css')));
-
-// app.get('/client/styles/mainSheet', function (request, response){
-//   console.log("I HIT DA STYLES");
-//   response.sendFile(path.resolve(__dirname, '..', 'styles', 'mainSheet', 'main.css'))
-// });
-// app.use(express.static(path.resolve(__dirname, 'client', 'styles', 'mainSheet', 'main.css')));
 
 
 // 500
@@ -44,6 +37,9 @@ app.get(ROUTES, function (request, response) {
   response.sendFile(path.resolve(__dirname, '..', 'client', 'index.html'))
 });
 
+app.get('/info', (req, res) => {
+  res.send({ length: Locations.length })
+})
 app.get('/locations', (req, res) => {
   const rando = Math.floor(Math.random() * Locations.length)
   res.send({ locations: Locations.splice(rando, 4) })
