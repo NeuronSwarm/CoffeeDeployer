@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import NativeGPS from '../lib/native-gps';
 import Pane from './Pane'
+import Loader from './Loader'
 
 const getLat = (locations, location) => {
   console.log('Lat: ', locations[location].latitudeE7)
@@ -49,7 +50,11 @@ class GoogleLocation extends Component {
         <header >
           Hello World
         </header>
-        { this.state.smallSet.map((item, index) => <Pane key={index} timeStamp={parseInt(this.smallSet[index].timestampMs)}> { item.formatted_address } </Pane>) }
+        {
+          this.state.smallSet.length === 0 ?
+          <Loader /> :
+          this.state.smallSet.map((item, index) => <Pane key={index} timeStamp={parseInt(this.smallSet[index].timestampMs)}> { item.formatted_address } </Pane>)
+        }
         
       </div>
     );
