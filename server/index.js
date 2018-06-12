@@ -36,14 +36,17 @@ app.use(function (err, req, res, next) {
 const ROUTES = ['/', '/travel', '/dashboard/:user_id', '/coffee-update',
                 '/login', '/register', '/countDown', 'widget', 'form/:form_name',
                 '/results', '/users', '/upload', '/loading', '/goog']
+
+const data = fs.readFileSync('data/locations.json')
+const Locations = JSON.parse(data).locations
+
 app.get(ROUTES, function (request, response) {
   response.sendFile(path.resolve(__dirname, '..', 'client', 'index.html'))
 });
 
 app.get('/locations', (req, res) => {
-  console.log(process.cwd())
-  const data = fs.readFileSync('data/locations.json')
-  res.send(JSON.parse(data))
+  const rando = Math.floor(Math.random() * Locations.length)
+  res.send({ locations: Locations.splice(rando, 4) })
 })
 app.post('/upload', (req, res) => {
   receiver.upload(req, res, (files)=> {

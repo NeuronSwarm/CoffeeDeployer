@@ -24,8 +24,7 @@ class GoogleLocation extends Component {
     const { locations } = await response.json()
 
     // this.setState({smallSet: locations.splice(0,10)})
-    const rando = Math.floor(Math.random() * locations.length)
-    this.smallSet = locations.splice(rando, 4)
+    this.smallSet = locations
     console.log(this.smallSet.length)
     const index = locations.length -1
     this.gps = new NativeGPS()
