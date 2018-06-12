@@ -35,11 +35,16 @@ app.use(function (err, req, res, next) {
 // a script tag to our application's JavaScript file(s).
 const ROUTES = ['/', '/travel', '/dashboard/:user_id', '/coffee-update',
                 '/login', '/register', '/countDown', 'widget', 'form/:form_name',
-                '/results', '/users', '/upload', '/loading']
+                '/results', '/users', '/upload', '/loading', '/goog']
 app.get(ROUTES, function (request, response) {
   response.sendFile(path.resolve(__dirname, '..', 'client', 'index.html'))
 });
 
+app.get('/locations', (req, res) => {
+  console.log(process.cwd())
+  const data = fs.readFileSync('data/locations.json')
+  res.send(JSON.parse(data))
+})
 app.post('/upload', (req, res) => {
   receiver.upload(req, res, (files)=> {
     res.send('uploaded')
