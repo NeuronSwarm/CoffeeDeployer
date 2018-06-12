@@ -12,6 +12,7 @@ import TravelForm from './TravelForm';
 import TravelResults from './TravelResults';
 import UploadContainer from './UploadContainer';
 import FormDirector from './FormDirector';
+import GoogleLocation from './GoogleLocation';
 import Users from './Users';
 
 import Loader from './Loader'
@@ -31,6 +32,7 @@ const Routes = () => {
       <Route path= '/users' component= {Users} />
       <Route path= '/upload' component= {UploadContainer} />
       <Route path= '/loading' component= {Loader} />
+      <Route path= '/goog' component= {GoogleLocation} />
       <Route component= {Singularity} />
     </Switch>
   )
