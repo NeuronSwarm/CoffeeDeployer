@@ -13,6 +13,7 @@ import TravelResults from './TravelResults';
 import UploadContainer from './UploadContainer';
 import FormDirector from './FormDirector';
 import GoogleLocation from './GoogleLocation';
+import Calendar from './Calendar';
 import Users from './Users';
 
 import Loader from './Loader'
@@ -33,6 +34,7 @@ const Routes = () => {
       <Route path= '/upload' component= {UploadContainer} />
       <Route path= '/loading' component= {Loader} />
       <Route path= '/goog' component= {GoogleLocation} />
+      <Route path= '/calendar' component= {Calendar} />
       <Route component= {Singularity} />
     </Switch>
   )

@@ -28,7 +28,7 @@ app.use(function (err, req, res, next) {
 // a script tag to our application's JavaScript file(s).
 const ROUTES = ['/', '/travel', '/dashboard/:user_id', '/coffee-update',
                 '/login', '/register', '/countDown', 'widget', 'form/:form_name',
-                '/results', '/users', '/upload', '/loading', '/goog']
+                '/results', '/users', '/upload', '/loading', '/goog', '/calendar']
 
 const data = fs.readFileSync('data/locations.json')
 const Locations = JSON.parse(data).locations
